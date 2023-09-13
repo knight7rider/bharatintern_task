@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>temprature-conveter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <script src="temp.js"></script> -->
+    <link rel="stylesheet" href="temp.css">
+
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="title">
+            <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">Temperature Converter</h1>
+            <span class="Temperature-icon"><i class="fa-solid fa-temperature-three-quarters"></i></span>
+        </div>
+
+        <div id="celsius">
+            <label style="padding-right: 55px;" class="label">Celsius:</label>
+            <input type="number" value="" id="cel">
+            <span class="icon">&#8451</span>
+        </div>
+        <div id="fahrenheit">
+            <label class="label">Fahrenheit:</label>
+            <input type="number" value="" id="fah">
+            <span class="icon">&#8457</span>
+        </div>
+        <div class="button">
+            <button onclick="erase()">erase</button>
+        </div>
+
+    </div>
+    <script>
+        var cel = document.getElementById("cel");
+        var fah = document.getElementById("fah");
+        cel.addEventListener('input', function () {
+            // console.log("cel changed");
+            let c = this.value;
+            let f = (c * 9 / 5) + 32;
+            fah.value = f;
+        });
+        fah.addEventListener('input', function () {
+            // console.log("cel changed");
+            let f = this.value;
+            let c = (f - 32) * 5 / 9;
+            cel.value = c;
+        });
+        function erase() {
+            cel.value = "";
+            fah.value = "";
+        }
+    </script>
+
+</body>
+
+</html>
